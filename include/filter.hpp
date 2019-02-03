@@ -5,7 +5,6 @@
 
 namespace filters
 {
-
     template <class T, class F>
     class filter
     {
@@ -49,7 +48,6 @@ namespace filters
 
 namespace filters
 {
-
     template <class T, class F>
     filter <T, F>::
     filter ( value_type center
