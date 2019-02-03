@@ -10,7 +10,7 @@ namespace filters
         using value_type = T;
 
         constexpr inline
-        mel (value_type value = value_type{})
+        mel (value_type value = value_type{}) noexcept
             : value { value }
         {}
 
@@ -27,7 +27,13 @@ namespace filters
         {}
 
         constexpr inline
-        operator value_type () const
+        operator value_type () const noexcept
+        {
+            return value;
+        }
+
+        constexpr inline
+        operator value_type & () & noexcept
         {
             return value;
         }
