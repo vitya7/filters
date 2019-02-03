@@ -16,6 +16,12 @@ namespace filters
 
         template <class Tp>
         constexpr inline
+        hz (hz <Tp> const& x)
+            : value { x.value }
+        {}
+
+        template <class Tp>
+        constexpr inline
         hz (mel <Tp> const& x)
             : value { mel_to_hz( x.value ) }
         {}
@@ -29,5 +35,6 @@ namespace filters
         value_type value;
     };
 
-    template <class Tp> hz (mel <Tp>) -> hz <Tp>;
+    template <class Tp> hz (hz <Tp> const&) -> hz <Tp>;
+    template <class Tp> hz (mel <Tp> const&) -> hz <Tp>;
 }
