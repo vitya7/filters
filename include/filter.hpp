@@ -51,12 +51,12 @@ namespace filters
     template <class T, class F>
     filter <T, F>::
     filter ( value_type center
-            , value_type width
-            , func_type func)
+           , value_type width
+           , func_type  func )
         :
             m_center ( center )
-        ,   m_width ( width )
-        ,   m_func ( std::move( func ) )
+        ,   m_width  ( width )
+        ,   m_func   ( std::move( func ) )
     {}
 
     template <class T, class F>
@@ -64,7 +64,7 @@ namespace filters
     filter <T, F>::
     operator () (value_type x) const
     {
-        return m_func( x - m_center ) / m_width;
+        return m_func( ( x - m_center ) / m_width );
     }
 
     template <class T, class F>
